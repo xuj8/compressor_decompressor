@@ -1,0 +1,12 @@
+cc_test(
+    name = "example_test",
+    srcs = ["//tests:example_test.cpp"],
+    deps = [
+        "//:example_lib",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+        "@bazel_tools//tools/cpp/runfiles",
+    ],
+    data = ["//data:example_test_data"],
+    copts = ["-std=c++20", "-g", "-fno-omit-frame-pointer", "-fno-inline"],
+)

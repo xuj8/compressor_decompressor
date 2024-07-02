@@ -1,0 +1,11 @@
+filegroup(
+    name = "example_test_data",
+    srcs = glob(["tests/*.txt"]),
+    visibility = ["//visibility:public"]
+)
+
+filegroup(
+    name = "example_data",
+    srcs = glob(["*.txt"]),
+    visibility = ["//visibility:public"]
+)

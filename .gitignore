@@ -1,0 +1,7 @@
+/bazel-*
+/build/
+/out/
+*.o
+*.pyc
+__pycache__/
+*.lock

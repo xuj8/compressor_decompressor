@@ -1,0 +1,22 @@
+cc_library(
+    name = "example_lib",
+    srcs = ["src/example.cpp"] + glob(["src/example_pattern_and_wildcard_*.cpp"]),
+    hdrs = ["include/example.h"] + glob(["src/example_pattern_and_wildcard_*.h"]),
+    includes = ["include"],
+    deps = [
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+        "@bazel_tools//tools/cpp/runfiles",
+    ],
+    copts = ["-std=c++20"],
+    data = ["//data:example_data"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "example_binary",
+    srcs = ["src/main.cpp"],
+    deps = [":example_lib"],
+    includes = ["include"],
+    copts = ["-std=c++20", "-O3"]
+)

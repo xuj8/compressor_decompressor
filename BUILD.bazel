@@ -13,6 +13,18 @@ cc_library(
     visibility = ["//visibility:public"],
 )
 
+cc_library(
+    name = "buffer_input_stream_lib",
+    srcs = ["srcs/buffer_input_stream.cpp"],
+    hdrs = ["include/buffer_input_stream.h", "include/types.h"],
+    includes = ["include"],
+    deps = [
+        "@bazel_tools//tools/cpp/runfiles",
+    ],
+    copts = ["-std=c++20"],
+    visibility = ["//visibility:public"],
+)
+
 cc_binary(
     name = "example_binary",
     srcs = ["src/main.cpp"],
